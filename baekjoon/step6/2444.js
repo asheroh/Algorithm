@@ -15,13 +15,3 @@ for (let i = 1; i <= N; i++) {
 for (let i = N - 1; i >= 1; i--) {
   console.log(" ".repeat(+N - i) + "*".repeat(i * 2 - 1));
 }
-
-// 4
-// 3
-// 2
-// 1
-// 0
-// 1
-// 2
-// 3
-// 4
