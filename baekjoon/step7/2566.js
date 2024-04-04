@@ -9,3 +9,26 @@
 
 출력
 첫째 줄에 최댓값을 출력하고, 둘째 줄에 최댓값이 위치한 행 번호와 열 번호를 빈칸을 사이에 두고 차례로 출력한다. 최댓값이 두 개 이상인 경우 그 중 한 곳의 위치를 출력한다. */
+
+let input = require("fs")
+  .readFileSync("/dev/stdin")
+  .toString()
+  .trim()
+  .split("\n");
+
+let max = 0;
+let row = 0,
+  col = 0;
+
+for (let i = 0; i < 9; i++) {
+  for (let j = 0; j < 9; j++) {
+    let now = input[i].split(" ").map(Number)[j];
+    if (max <= now) {
+      max = now;
+      row = i + 1;
+      col = j + 1;
+    }
+  }
+}
+
+console.log(max + "\n" + row + " " + col);
