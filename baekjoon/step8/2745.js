@@ -13,21 +13,28 @@
 // 출력
 // 첫째 줄에 B진법 수 N을 10진법으로 출력한다.
 
-let input = require("fs").readFileSync("/dev/stdin").toString().split(" ");
+// let input = require("fs").readFileSync("/dev/stdin").toString().split(" ");
 
-let [char, base] = input;
+// let [char, base] = input;
 
-char = char.split("").reverse();
+// char = char.split("").reverse();
 
-let answer = 0;
+// let answer = 0;
 
-for (let i = 0; i < char.length; i++) {
-  if (char[i] >= "A" && char[i] <= "Z") {
-    let alphabet = char[i].charCodeAt(0) - 55;
-    answer += alphabet * Math.pow(base, i);
-  } else {
-    answer += char[i] * Math.pow(base, i);
-  }
-}
+// for (let i = 0; i < char.length; i++) {
+//   if (char[i] >= "A" && char[i] <= "Z") {
+//     let alphabet = char[i].charCodeAt(0) - 55;
+//     answer += alphabet * Math.pow(base, i);
+//   } else {
+//     answer += char[i] * Math.pow(base, i);
+//   }
+// }
 
-console.log(answer);
+// console.log(answer);
+
+// 숏코딩
+const [num, form] = require("fs").readFileSync(0).toString().trim().split(" ");
+
+let ans = parseInt(num, form);
+
+console.log(ans);
