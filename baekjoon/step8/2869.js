@@ -19,9 +19,8 @@ let [up, down, height] = require("fs")
   .map(Number);
 
 function solution(up, down, height) {
-  let answer = 0;
-
-  console.log(answer);
+  let day = Math.ceil((height - down) / (up - down));
+  console.log(day);
 }
 
 solution(up, down, height);
