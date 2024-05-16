@@ -16,6 +16,5 @@ records.forEach((record) => {
     el.delete(record[0]);
   }
 });
-// console.log([...el.keys()]);
 
 console.log([...el.keys()].sort().reverse().join("\n"));
