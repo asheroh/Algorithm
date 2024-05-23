@@ -28,36 +28,35 @@
 let [N, ...arr] = require("fs").readFileSync(0).toString().trim().split("\n");
 arr = arr.map((e) => e.split(" ").map(Number));
 
+const offset = [
+  [1, 0],
+  [-1, 0],
+  [0, 1],
+  [0, -1],
+];
+
 function solution(N, arr) {
   const visited = Array.from({ length: N }, () => Array(N).fill(false));
-  const offset = [
-    [0, 1],
-    [1, 0],
-    [0, -1],
-    [-1, 0],
-  ];
-
   const sizes = [];
-
   for (let i = 0; i < N; i++) {
     for (let j = 0; j < N; j++) {
-      if (arr[i][j] === 1 && !visited[i][j]) {
-        const queue = [[i, j]];
+      if (!visited[i][j] && arr[i][j] === 1) {
         let size = 0;
+        const queue = [[i, j]];
         visited[i][j] = true;
-        while (queue.length > 0) {
+        while (queue.length) {
           const [curX, curY] = queue.shift();
           size++;
           for (const [dx, dy] of offset) {
-            const nx = curX + dx;
-            const ny = curY + dy;
+            nx = curX + dx;
+            ny = curY + dy;
             if (
               nx >= 0 &&
               nx < N &&
               ny >= 0 &&
               ny < N &&
-              arr[nx][ny] === 1 &&
-              !visited[nx][ny]
+              !visited[nx][ny] &&
+              arr[nx][ny] === 1
             ) {
               visited[nx][ny] = true;
               queue.push([nx, ny]);
@@ -69,9 +68,8 @@ function solution(N, arr) {
     }
   }
   sizes.sort((a, b) => a - b);
-  if (sizes.length === 0) {
-    console.log(0);
-  } else {
+  if (sizes.length === 0) console.log(0);
+  else {
     console.log(sizes.length);
     console.log(sizes.join(" "));
   }
