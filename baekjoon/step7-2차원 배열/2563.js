@@ -21,14 +21,18 @@ N = parseInt(N);
 
 arr = arr.map((e) => e.split(" ").map(Number));
 
+// 100 * 100 빈 배열 생성
 let whiteArea = new Array(100).fill().map(() => new Array(100).fill(0));
 
 let count = 0;
 for (let i = 0; i < N; i++) {
+  // 각 사각형 좌측 하단 좌표 변수화
   let startX = arr[i][0];
   let startY = arr[i][1];
   for (let j = 0; j < 10; j++) {
+    // x축 시작점 기준 길이 10만큼 순회
     for (let k = 0; k < 10; k++) {
+      //y축 시작점 기준 길이 10만큼 순회
       if (whiteArea[startX + j][startY + k] !== 0) {
         continue;
       } else {

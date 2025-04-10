@@ -19,7 +19,7 @@ function solution(N) {
   }
 
   // Nkg를 만들 수 없는 경우 -1 반환, 아니면 최소 봉지 개수 반환
-  return dp[N] === Infinity ? -1 : dp[N];
+  return dp[N] === Infinity ? -1 : dp;
 }
 
 console.log(solution(N));
